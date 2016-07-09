@@ -3,7 +3,7 @@ A fast, C++ OpenGL implementation of Conway's Game of Life. Now includes a 3D ve
 
 ![](http://i.imgur.com/wuedsKw.png)
 
-![](http://imgur.com/tzZC26g)
+![](http://i.imgur.com/tzZC26g.png)
 
 ![](http://i.imgur.com/pqAgWU6.png)
 
