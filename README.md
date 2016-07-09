@@ -14,10 +14,18 @@ The 3D Version:
 ![](http://i.imgur.com/QNmfhg0.png)
 
 Keyboard Commands:
+
   [1...9] : Simulation Size
+  
   [Shift + 1...5] Larger Simulation Size
+  
   [Tab] : toggle 2D/3D
+  
   [Space] : Start/Stop Simulation
+  
   [,],[.] : Zoom in/out
+  
   [w],[s],[a],[d] : Pan
+  
   [r] : toggle rotation
+  
