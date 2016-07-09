@@ -1,10 +1,12 @@
 #include "Life3d.h"
 #include "life.h"
 
-#include "time.h"
+#include <ctime>
 
 #include <GL\glut.h>
+
 using namespace life3;
+
 #ifndef GLSCENE_H
 #define GLSCENE_H
 
