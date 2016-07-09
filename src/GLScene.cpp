@@ -19,6 +19,7 @@ float rot_z = 0.3f;
 float rot_angle = 0.1f;
 bool b_rot = true;
 bool sim = true;
+bool shade = false;
 int time_e = clock();
 
 Scene g_current = scene1;
@@ -168,6 +169,10 @@ void KeyboardGL(unsigned char c, int x, int y)
 	{
 		scal -= 0.1f;
 	}
+	if (c == 'c')
+	{
+		shade = !shade;
+	}
 
 	if (c == '.')
 	{
@@ -288,7 +293,7 @@ void render()
 	//glScalef(1.0f+scal, 1.0f+scal, 1.0f+scal);
 	glTranslatef(-5.0f + x_offset, -5.0f + y_offset, -9.0f+scal);
 	//glTranslatef(-0.5f, -0.5f, 0.0f);
-	glColor3f((169.0f / 255.0f), (234.0f / 255.0f), (123.0f / 255.0f));
+	if(shade == false) glColor3f((169.0f / 255.0f), (234.0f / 255.0f), (123.0f / 255.0f));
 	//GLfloat cyan[] = { (169.0f / 255.0f), (234.0f / 255.0f), (123.0f / 255.0f), 1.f };
 	//glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
 	glBegin(GL_QUADS);
@@ -299,6 +304,7 @@ void render()
 		{
 			if (life->getLifeform(j + 1, i + 1) == 1)
 			{
+				if (shade == true) glColor3f(((float)i / (float)size), ((float)j / (float)size), 1.0f);
 				glVertex2f(x_t - off, y_t + off);
 				glVertex2f(x_t + off, y_t + off);
 				glVertex2d(x_t + off, y_t - off);
@@ -329,9 +335,11 @@ void render3d()
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		
-		GLfloat green[] = { (169.0f / 255.0f), (234.0f / 255.0f), (123.0f / 255.0f), 1.f };
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, green);
-
+		if (shade == false)
+		{
+			GLfloat green[] = { (169.0f / 255.0f), (234.0f / 255.0f), (123.0f / 255.0f), 1.f };
+			glMaterialfv(GL_FRONT, GL_DIFFUSE, green);
+		}
 		/* clear color and depth buffers */
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -353,6 +361,12 @@ void render3d()
 				{
 					if (life3d->getLifeform(k + 1, j + 1, i + 1) == 1)
 					{
+						if (shade == true)
+						{
+							GLfloat green[] = { 5.0f * ((float)i / (float)size), 5.0f * ((float)j / (float)size), 5.0f * ((float)k / (float)size) };
+							glMaterialfv(GL_FRONT, GL_DIFFUSE, green);
+						}
+
 						glNormal3f(0.0F, 0.0F, 1.0F);
 						glVertex3f(sz + x_t, sz + y_t, sz + z_t); glVertex3f(-sz + x_t, sz + y_t, sz + z_t);
 						glVertex3f(-sz + x_t, -sz + y_t, sz + z_t); glVertex3f(sz + x_t, -sz + y_t, sz + z_t);
