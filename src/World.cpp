@@ -38,21 +38,16 @@ int World::getNeighbors(int x, int y, int val)
 {
 	int count = 0;
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			if (getLifeform(x - 1 + j, y - 1 + i) == val)
-			{
-				int m[2] = { x - 1 + j, y - 1 + i };
-				count++;
-			}
-		}
-	}
-	if (getLifeform(x, y) == val)
-	{
-		count--;
-	}
+	count += grid[(x-1)*(width + 2) + (y)];
+	count += grid[(x)*(width + 2) + (y-1)];
+	count += grid[(x - 1)*(width + 2) + (y-1)];
+	count += grid[(x + 1)*(width + 2) + (y)];
+
+	count += grid[(x)*(width + 2) + (y+1)];
+	count += grid[(x+1)*(width + 2) + (y+1)];
+	count += grid[(x+1)*(width + 2) + (y-1)];
+	count += grid[(x - 1)*(width + 2) + (y+1)];
+	
 	return count;
 }
 
