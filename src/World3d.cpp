@@ -39,25 +39,42 @@ namespace world3
 	int World3d::getNeighbors(int x, int y, int z, int val)
 	{
 		int count = 0;
+		
+		count += grid[(y+1) + x*(width + 2) + z*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + x*(width + 2) + (z+1)*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + x*(width + 2) + (z-1)*(width + 2)*(height + 2)];
 
-		for (int i = 0; i < 3; i++)
-		{
-			for (int j = 0; j < 3; j++)
-			{
-				for (int k = 0; k < 3; k++)
-				{
-					if (getLifeform(x - 1 + j, y - 1 + i, z - 1 + k) == val)
-					{
-						//int m[3] = { x - 1 + j, y - 1 + i, z - 1 +k };
-						count++;
-					}
-				}
-			}
-		}
-		if (getLifeform(x, y, z) == val)
-		{
-			count--;
-		}
+		count +=  grid[(y + 1) + (x + 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + (x + 1)*(width + 2) + (z)*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + (x + 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+		
+		count += grid[(y + 1) + (x - 1)*(width + 2) + z*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + (x - 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y + 1) + (x - 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+		//
+		count += grid[(y - 1) + x*(width + 2) + z*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + x*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + x*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+
+		count += grid[(y - 1) + (x + 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + (x + 1)*(width + 2) + (z)*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + (x + 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+
+		count += grid[(y - 1) + (x - 1)*(width + 2) + z*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + (x - 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y - 1) + (x - 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+		//
+		count += grid[(y) + x*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y) + x*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+
+		count += grid[(y) + (x + 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y) + (x + 1)*(width + 2) + (z)*(width + 2)*(height + 2)];
+		count += grid[(y) + (x + 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+
+		count += grid[(y) + (x - 1)*(width + 2) + z*(width + 2)*(height + 2)];
+		count += grid[(y) + (x - 1)*(width + 2) + (z + 1)*(width + 2)*(height + 2)];
+		count += grid[(y) + (x - 1)*(width + 2) + (z - 1)*(width + 2)*(height + 2)];
+		
 		return count;
 	}
 
