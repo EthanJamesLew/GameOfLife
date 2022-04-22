@@ -10,7 +10,7 @@ namespace world3
 		grid = (short *)malloc((width + 2)*(height + 2)*(depth + 2)*sizeof(short));
 		new_grid = (short *)malloc((width + 2)*(height + 2)*(depth + 2)*sizeof(short));
 
-		for (int i = 0; i < (width + 2)*(height + 2)*(depth + 2); i++)
+		for (unsigned int i = 0; i < (width + 2)*(height + 2)*(depth + 2); i++)
 		{
 			grid[i] = 0;
 			new_grid[i] = 0;
@@ -90,12 +90,12 @@ namespace world3
 
 	void World3d::print()
 	{
-		for (int i = 1; i <= height; i++)
+		for (unsigned int i = 1; i <= height; i++)
 		{
 			cout << endl;
-			for (int j = 1; j <= width; j++)
+			for (unsigned int j = 1; j <= width; j++)
 			{
-				for (int k = 1; k <= depth; k++)
+				for (unsigned int k = 1; k <= depth; k++)
 				{
 					cout << getLifeform(j, i, k) << " ";
 				}

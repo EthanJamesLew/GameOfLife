@@ -1,9 +1,9 @@
 #include "Life3d.h"
-#include "life.h"
+#include "Life.h"
 
 #include <ctime>
 
-#include <GL\glut.h>
+#include <GL/glut.h>
 
 using namespace life3;
 

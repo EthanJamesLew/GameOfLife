@@ -8,7 +8,7 @@ World::World(int w, int h)
 	grid = (short *)malloc((width + 2)*(height + 2)*sizeof(short));
 	new_grid = (short *)malloc((width + 2)*(height + 2)*sizeof(short));
 
-	for (int i = 0; i < (width + 2)*(height + 2); i++)
+	for (unsigned int i = 0; i < (width + 2)*(height + 2); i++)
 	{
 		grid[i] = 0;
 		new_grid[i] = 0;
@@ -63,10 +63,10 @@ void World::setLife(int x, int y, int val)
 
 void World::print()
 {
-	for (int i = 1; i <= height; i++)
+	for (unsigned int i = 1; i <= height; i++)
 	{
 		cout << endl;
-		for (int j = 1; j <= width; j++)
+		for (unsigned int j = 1; j <= width; j++)
 		{
 			cout << getLifeform(j, i) << " ";
 		}

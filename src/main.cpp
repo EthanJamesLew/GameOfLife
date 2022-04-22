@@ -5,7 +5,7 @@
 #include "time.h"
 
 //#include <stdlib.h>
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "GLScene.h"
 

@@ -83,6 +83,8 @@ void Cleanup()
 
 void newLife()
 {
+	// ew--calling a destructor
+	life->~Life();
 	life = new Life(size, size);
 	for (int i = 0; i < .6*size*size; i++)
 	{
@@ -94,6 +96,8 @@ void newLife()
 
 void newlife3d()
 {
+	// ew--calling a destructor
+	life3d->~Life3d();
 	life3d = new Life3d(size / 5, size / 5, size / 5);
 	for (int i = 0; i < .05*(size / 5)*(size / 5)*(size / 5); i++)
 	{

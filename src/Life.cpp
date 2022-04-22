@@ -4,9 +4,9 @@
 void Life::update()
 {
 
-	for (int i = 1; i <= height; i++)
+	for (unsigned int i = 1; i <= height; i++)
 	{
-		for (int j = 1; j <= width; j++)
+		for (unsigned int j = 1; j <= width; j++)
 		{
 			int m = getNeighbors(j, i, 1);
 			if (m == 3)
